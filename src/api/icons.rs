@@ -22,7 +22,7 @@ fn icon(domain: String) -> Content<Vec<u8>> {
     let icon_type = ContentType::new("image", "x-icon");
 
     // Validate the domain to avoid directory traversal attacks
-    if domain.contains('/') || domain.contains("..") {
+    if !CONFIG.icon_enabled || domain.contains('/') || domain.contains("..") {
         return Content(icon_type, FALLBACK_ICON.to_vec());
     }
 

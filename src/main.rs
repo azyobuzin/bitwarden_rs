@@ -279,6 +279,7 @@ pub struct Config {
     icon_cache_folder: String,
     attachments_folder: String,
 
+    icon_enabled: bool,
     icon_cache_ttl: u64,
     icon_cache_negttl: u64,
 
@@ -331,6 +332,7 @@ impl Config {
             icon_cache_folder: get_env_or("ICON_CACHE_FOLDER", format!("{}/{}", &df, "icon_cache")),
             attachments_folder: get_env_or("ATTACHMENTS_FOLDER", format!("{}/{}", &df, "attachments")),
 
+            icon_enabled: get_env_or("ICON_ENABLED", true),
             // icon_cache_ttl defaults to 30 days (30 * 24 * 60 * 60 seconds)
             icon_cache_ttl: get_env_or("ICON_CACHE_TTL", 2592000u64),
             // icon_cache_negttl defaults to 3 days (3 * 24 * 60 * 60 seconds)
